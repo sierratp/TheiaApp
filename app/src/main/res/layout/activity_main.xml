@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#FFFFFF">
+
+    <!-- Customize Button -->
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:text="Welcome To\nTheia"
+        android:textColor="#000000"
+        android:textSize="48sp"
+        android:textStyle="bold" />
+
+    <!-- Eye Icon-->
+    <ImageView
+        android:id="@+id/eye_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="246dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:contentDescription="Eye Icon"
+        android:focusable="true"
+        android:src="@drawable/eyeicon" />
+
+    <Button
+        android:id="@+id/customize_button"
+        android:layout_width="350dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#007BFF"
+        android:text="Customize"
+        android:textColor="#FFFFFF"
+        android:textSize="48sp"
+        android:translationY="20dp"
+        app:cornerRadius="50dp" />
+</LinearLayout>
