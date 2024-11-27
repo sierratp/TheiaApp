@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:elevation="4dp">
+
+        <!-- Back Button -->
+        <TextView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="10dp"
+            android:padding="16dp"
+            android:text="Back"
+            android:textColor="#000000"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#FFFFFF">
+
+        <Button
+            android:id="@+id/enable_screen_button"
+            android:layout_width="350dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="#007BFF"
+            android:text="Enable Screen Reader"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp"
+            app:cornerRadius="50dp" />
+
+        <Button
+            android:id="@+id/enable_speech_button"
+            android:layout_width="350dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="#007BFF"
+            android:text="Enable Speech to Text"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp"
+            app:cornerRadius="50dp" />
+
+        <Button
+            android:id="@+id/measurement_button"
+            android:layout_width="350dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="#007BFF"
+            android:text="Measurement Options"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp"
+            app:cornerRadius="50dp" />
+    </LinearLayout>
+
+</RelativeLayout>
