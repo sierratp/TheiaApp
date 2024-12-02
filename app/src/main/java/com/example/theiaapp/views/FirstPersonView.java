@@ -12,6 +12,9 @@ import com.example.theiaapp.R;
 
 public class FirstPersonView extends AppCompatActivity {
 
+    private Handler handler = new Handler();
+    private Runnable navigationRunnable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +43,20 @@ public class FirstPersonView extends AppCompatActivity {
             }
         }
 
-        // Schedule BlockedPath to open after 5 seconds
-        new Handler().postDelayed(() -> {
+        // Schedule BlockedPathView to open after 5 seconds
+        navigationRunnable = () -> {
             Intent intent = new Intent(FirstPersonView.this, BlockedPathView.class);
             startActivity(intent);
-        }, 5000); // 5000 milliseconds = 5 seconds
+        };
+        handler.postDelayed(navigationRunnable, 5000); // 5000 milliseconds = 5 seconds
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Cancel the timer if the activity is destroyed
+        if (handler != null && navigationRunnable != null) {
+            handler.removeCallbacks(navigationRunnable);
+        }
     }
 }
