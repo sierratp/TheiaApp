@@ -19,10 +19,10 @@ public class FirstPersonView extends AppCompatActivity {
         TextView backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(v -> finish()); // Closes the current activity
 
-//        // Schedule EmergencyCallView to open after 5 seconds
-//        new Handler().postDelayed(() -> {
-//            Intent intent = new Intent(FirstPersonView.this, EmergencyCallView.class); // Ensure correct target
-//            startActivity(intent);
-//        }, 5000); // 5000 milliseconds = 5 seconds
+        // Schedule BlockedPath to open after 5 seconds
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(FirstPersonView.this, BlockedPathView.class);
+            startActivity(intent);
+        }, 5000); // 5000 milliseconds = 5 seconds
     }
 }
