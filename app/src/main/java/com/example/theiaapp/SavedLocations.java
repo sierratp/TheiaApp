@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.speech.tts.TextToSpeech;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 public class SavedLocations extends AppCompatActivity {
 
@@ -48,4 +51,35 @@ public class SavedLocations extends AppCompatActivity {
         });
 
     }
+
+    // Text to Speech Section
+    private TextToSpeech tts;
+    protected void onStart() {
+        super.onStart();
+
+        tts = new TextToSpeech(this, status -> {
+            if (status == TextToSpeech.SUCCESS) {
+                tts.setLanguage(Locale.US);
+                speakText("Saved Locations.");
+            }
+        });
+    }
+
+    private void speakText(String text) {
+        if (tts != null) {
+            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        if (tts != null) {
+            tts.stop();
+            tts.shutdown();
+            tts = null;
+        }
+        super.onStop();
+    }
+
+
 }

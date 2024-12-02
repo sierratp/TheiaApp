@@ -2,10 +2,13 @@ package com.example.theiaapp;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Locale;
 
 public class Measurements extends AppCompatActivity {
 
@@ -65,5 +68,34 @@ public class Measurements extends AppCompatActivity {
         if (clickedButton != enableStride) {
             enableStride.setText("Disable Stride");
         }
+    }
+
+    // Text to Speech Section
+    private TextToSpeech tts;
+    protected void onStart() {
+        super.onStart();
+
+        tts = new TextToSpeech(this, status -> {
+            if (status == TextToSpeech.SUCCESS) {
+                tts.setLanguage(Locale.US);
+                speakText("Measurements Page.");
+            }
+        });
+    }
+
+    private void speakText(String text) {
+        if (tts != null) {
+            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        if (tts != null) {
+            tts.stop();
+            tts.shutdown();
+            tts = null;
+        }
+        super.onStop();
     }
 }
