@@ -1,6 +1,8 @@
 package com.example.theiaapp.views;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,5 +20,10 @@ public class MapView extends AppCompatActivity {
         backButton.setOnClickListener(v -> {
             finish(); // Closes the current activity
         });
+        // Schedule EmergencyCallView to open after 5 seconds
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(MapView.this, EmergencyCallView.class); // Ensure correct target
+            startActivity(intent);
+        }, 5000); // 5000 milliseconds = 5 seconds
     }
 }
