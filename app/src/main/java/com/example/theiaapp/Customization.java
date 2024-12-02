@@ -32,5 +32,11 @@ public class Customization extends AppCompatActivity {
             startActivity(intent);
         });
 
+        Button measurements = findViewById(R.id.measurement_button);
+        measurements.setOnClickListener(v-> {
+            Intent intent = new Intent(Customization.this, Measurements.class);
+            startActivity(intent);
+        });
+
     }
 }

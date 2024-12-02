@@ -44,6 +44,9 @@
         </activity>
         <activity android:name=".views.EmergencyCallView" />
         <activity android:name=".views.BlockedPathView" />
+        <activity
+            android:name=".Measurements"
+            android:exported="false" />
     </application>
 
 </manifest>
